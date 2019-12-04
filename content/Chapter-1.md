@@ -1,0 +1,16 @@
+# Chapter 1 - An introduction to Azure Functions
+
+Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, Java, JavaScript, PowerShell, and Python. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop serverless applications on Microsoft Azure.
+
+This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Functions, start with Create your first Azure Function. If you are looking for more technical information about Functions, see the developer reference.
+
+## Features
+Here are some key features of Functions:
+
+- **Choice of language** - Write functions using your choice of C#, Java, Javascript, Python, and other languages. See Supported languages for the complete list.
+- **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Consumption hosting plan option in the pricing section.
+- **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.
+- **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
+- **Simplified integration** - Easily leverage Azure services and software-as-a-service (SaaS) offerings. See the integrations section for some examples.
+- **Flexible development** - Code your functions right in the portal or set up continuous integration and deploy your code through GitHub, Azure DevOps Services, and other supported development tools.
+- **Open-source**** - The Functions runtime is open-source and available on GitHub.
