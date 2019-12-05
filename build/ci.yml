@@ -12,5 +12,11 @@ pool:
 steps:
 - script: choco install pandoc
   displayName: 'Install pandoc'
-- script: 'pandoc -o output.docx -f markdown --table-of-contents --reference-doc=.\templates\template.dotx -t docx .\content\Chapter-1.md'
+- script: 'pandoc -o $(Build.ArtifactStagingDirectory)/output.docx -f markdown --table-of-contents --reference-doc=.\templates\template.dotx -t docx .\content\Chapter-1.md'
   displayName: 'Convert markdown to docx'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'docs'
+    publishLocation: 'Container'
+  displayName: 'Publish artifacts'
