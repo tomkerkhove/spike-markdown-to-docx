@@ -14,7 +14,7 @@ steps:
   displayName: 'Install pandoc'
 - script: |
     cd content
-    pandoc -o $(Build.ArtifactStagingDirectory)/output.docx -f markdown --table-of-contents --reference-doc=.\..\templates\template.dotx -t docx .\1.Azure-Functions.md .\2.Logic-Apps.md
+    pandoc -o $(Build.ArtifactStagingDirectory)/azure-introduction.docx -f markdown --table-of-contents --reference-doc=.\..\templates\template.dotx -t docx .\1.Azure-Functions.md .\2.Logic-Apps.md --verbose
   displayName: 'Convert markdown to docx'
 - task: PublishBuildArtifacts@1
   inputs:
