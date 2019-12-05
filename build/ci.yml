@@ -12,17 +12,10 @@ pool:
 steps:
 - script: choco install pandoc
   displayName: 'Install pandoc'
-- task: CmdLine@2
-  inputs:
-    script: 'pandoc -o $(Build.ArtifactStagingDirectory)/output.docx -f markdown --reference-doc=.\..\templates\template.dotx -t docx .\1.Azure-Functions.md .\2.Logic-Apps.md'
-    workingDirectory: 'content'
-    failOnStderr: true
-- task: PowerShell@2
+- script: |
+    cd content
+    pandoc -o $(Build.ArtifactStagingDirectory)/output.docx -f markdown --reference-doc=.\..\templates\template.dotx -t docx .\1.Azure-Functions.md .\2.Logic-Apps.md
   displayName: 'Convert markdown to docx'
-  inputs:
-    targetType: 'inline'
-    script: 'pandoc -o $(Build.ArtifactStagingDirectory)/output.docx -f markdown --reference-doc=.\..\templates\template.dotx -t docx .\1.Azure-Functions.md .\2.Logic-Apps.md'
-    workingDirectory: 'content'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
