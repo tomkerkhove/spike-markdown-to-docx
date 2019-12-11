@@ -12,14 +12,15 @@ pool:
 steps:
 - script: choco install pandoc
   displayName: 'Install pandoc'
+- script: npm install mermaid-filter
+  displayName: 'Install mermaid-filter'
 - task: PowerShell@2
   displayName: 'Convert to docx'
   inputs:
     targetType: 'inline'
     script: |
       cd content
-      pip install pandoc-mermaid-filter
-      pandoc -o "$(Build.ArtifactStagingDirectory)/azure-introduction.docx" -f markdown --table-of-contents --filter pandoc-mermaid --verbose --reference-doc=.\..\templates\template.dotx -t docx (gci *.md -name -file)
+      pandoc -o "$(Build.ArtifactStagingDirectory)/azure-introduction.docx" -f markdown --table-of-contents --filter mermaid-filter.cmd --verbose --reference-doc=.\..\templates\template.dotx -t docx (gci *.md -name -file)
     failOnStderr: true
 - task: PublishBuildArtifacts@1
   inputs:
